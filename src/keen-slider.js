@@ -283,7 +283,18 @@ function KeenSlider(initialContainer, initialOptions = {}) {
       slidesPerView === 1 && trackDirection !== 0
         ? touchIndexStart
         : trackCurrentIdx
-    moveToIdx(startIndex + Math.sign(trackDirection))
+    /* start original
+    moveToIdx(touchIndexStart + (relativeMovement * trackDirection))
+    end original */
+
+    // start niho change
+    if (slidesPerView === 1) {
+      moveToIdx(startIndex + Math.sign(trackDirection))
+    } else {
+      const relativeMovement = touchIndexStart === trackCurrentIdx ? 0 : Math.abs(touchIndexStart - trackCurrentIdx)
+      moveToIdx(touchIndexStart + (relativeMovement * trackDirection))
+    }
+    // end niho change
   }
 
   function moveToIdx(
