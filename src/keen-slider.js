@@ -279,22 +279,14 @@ function KeenSlider(initialContainer, initialOptions = {}) {
   }
 
   function moveSnapOne() {
+    moveToIdx(trackCurrentIdx)
+    /*
     const startIndex =
-      slidesPerView === 1 && trackDirection !== 0
-        ? touchIndexStart
-        : trackCurrentIdx
-    /* start original
-    moveToIdx(touchIndexStart + (relativeMovement * trackDirection))
-    end original */
-
-    // start niho change
-    if (slidesPerView === 1) {
-      moveToIdx(startIndex + Math.sign(trackDirection))
-    } else {
-      const relativeMovement = touchIndexStart === trackCurrentIdx ? 0 : Math.abs(touchIndexStart - trackCurrentIdx)
-      moveToIdx(touchIndexStart + (relativeMovement * trackDirection))
-    }
-    // end niho change
+        slidesPerView === 1 && trackDirection !== 0
+            ? touchIndexStart
+            : trackCurrentIdx
+    moveToIdx(startIndex + Math.sign(trackDirection))
+    */
   }
 
   function moveToIdx(
